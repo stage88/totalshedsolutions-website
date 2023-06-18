@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://totalshedsolutions.com.au/sitemap/sitemap-index.xml
