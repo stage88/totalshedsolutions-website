@@ -21,8 +21,9 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
-      PublicAccessBlockConfiguration:
-        BlockPublicPolicy: false        
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred 
       BucketName: !Ref SiteBucket      
       WebsiteConfiguration:
         IndexDocument: index.html
