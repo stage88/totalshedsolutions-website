@@ -28,7 +28,7 @@ Resources:
         RestrictPublicBuckets: false
       OwnershipControls:
         Rules:
-          - ObjectOwnership: BucketOwnerPreferred
+          - ObjectOwnership: ObjectWriter
       BucketName: !Ref SiteBucket      
       WebsiteConfiguration:
         IndexDocument: index.html
