@@ -1,6 +1,6 @@
 import React from 'react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import ProfileImage from '../images/large-logo.png';
+import Logo from '../images/large-logo.png';
 
 const Header: React.FC = () => {
   const { name } = useSiteMetadata();
@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     <header id='header'>
       <div className='inner'>
         <a href='/' className='image avatar'>
-          <img src={ProfileImage} alt={name} />
+          <img src={Logo} alt={name} />
         </a>        
       </div>
     </header>
