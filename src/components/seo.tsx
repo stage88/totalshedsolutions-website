@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import Logo from '../images/large-logo.png';
 
 const SEO: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const site = useSiteMetadata();
@@ -12,18 +11,18 @@ const SEO: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     <Helmet title={title} defaultTitle={title}>
       <html lang={'en-US'} />
       <meta name='description' content={description} />
-      <meta name='image' content={`${siteUrl}${Logo}`} />
+      <meta name='image' content={`${siteUrl}${siteImage}`} />
       <meta property='og:title' content={title} />
       <meta property='og:url' content={siteUrl} />
       <meta property='og:description' content={description} />
-      <meta property='og:image' content={`${siteUrl}${Logo}`} />
+      <meta property='og:image' content={`${siteUrl}${siteImage}`} />
       <meta property='og:type' content='website' />
       <meta property='og:image:alt' content={description} />
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:url' content={siteUrl} />
       <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content={`${siteUrl}${Logo}`} />
+      <meta name='twitter:image' content={`${siteUrl}${siteImage}`} />
       <meta name='twitter:image:alt' content={description} />
       <meta name='twitter:creator' content={author} />
       <link rel='icon' type='image/png' href='/favicon.ico' />
