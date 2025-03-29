@@ -1,14 +1,14 @@
 import React from 'react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
-const SEO: React.FC<{ children?: React.ReactNode }> = () => {
+export default function SEO() {
   const site = useSiteMetadata();
 
   const { title, description, siteUrl, author, siteImage } = site;
 
   return (
     <>
-      <html lang={'en-US'} />
+      <title>{title}</title>
       <meta name='description' content={description} />
       <meta name='image' content={`${siteUrl}${siteImage}`} />
       <meta property='og:title' content={title} />
@@ -28,6 +28,4 @@ const SEO: React.FC<{ children?: React.ReactNode }> = () => {
       <link rel='apple-touch-icon' href='/favicon.ico' />
     </>
   );
-};
-
-export default SEO;
+}

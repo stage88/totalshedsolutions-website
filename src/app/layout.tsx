@@ -2,7 +2,6 @@
 
 import Header from '@/components/header';
 import SEO from '@/components/seo';
-import Head from 'next/head';
 import '../assets/scss/main.scss';
 
 export default function RootLayout({
@@ -12,9 +11,9 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning={true} className='scroll-smooth!' lang='en'>
-      <Head>
+      <head>
         <SEO />
-      </Head>
+      </head>
 
       <body>
         <div className='site-container'>

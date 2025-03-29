@@ -25,7 +25,7 @@ const useSiteMetadata = (): Props => {
     constactNumber: '0411 777 877',
     authorUrl: 'https://github.com/stage88',
     sourceUrl: 'https://github.com/stage88/totalshedsolutions-website',
-    siteImage: '/images/large-logo.png',
+    siteImage: 'images/large-logo.png',
     facebookUrl: 'https://www.facebook.com/profile.php?id=100092559450393',
   };
 };

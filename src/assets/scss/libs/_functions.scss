@@ -1,5 +1,5 @@
-@use "vars";
-@use "skel"; // Import _skel.scss to access the val() function
+@use 'vars';
+@use 'skel'; // Import _skel.scss to access the val() function
 
 /// Gets a duration value.
 /// @param {string} $keys Key(s).
