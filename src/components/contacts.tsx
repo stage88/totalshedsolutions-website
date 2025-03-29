@@ -17,7 +17,7 @@ const Contacts: React.FC = () => {
             <a href={facebookUrl} className='icon fa-facebook'>
               <span className='label'>Facebook</span>
             </a>
-          </li>          
+          </li>
           <li>
             <a href={`mailto:${constactEmail}`} className='icon fa-envelope-o'>
               <span className='label'>Email</span>

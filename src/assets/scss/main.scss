@@ -1,6 +1,9 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
+@use 'libs/skel';
+
+@use "sass:color";
+@use 'libs/vars';
+@use 'libs/functions';
+@use 'libs/mixins';
 @import '../css/font-awesome.min.css';
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
 
@@ -10,16 +13,14 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-@import "libs/skel";
-
-@include skel-breakpoints((xlarge: '(max-width: 1800px)',
+@include skel.skel-breakpoints((xlarge: '(max-width: 1800px)',
     large: '(max-width: 1280px)',
     medium: '(max-width: 980px)',
     small: '(max-width: 736px)',
     xsmall: '(max-width: 480px)'
   ));
 
-@include skel-layout((reset: 'full',
+@include skel.skel-layout((reset: 'full',
     boxModel: 'border',
     grid: (gutters: 2.5em),
     conditionals: true,
@@ -35,15 +36,15 @@ $size-header-pad: 2em;
 /* Basic */
 
 body {
-  background: _palette(bg);
+  background: functions.palette(bg);
 
   &.is-loading {
 
     *,
     *:before,
     *:after {
-      @include vendor('animation', 'none !important');
-      @include vendor('transition', 'none !important');
+      @include skel.vendor('animation', 'none !important');
+      @include skel.vendor('transition', 'none !important');
     }
   }
 }
@@ -52,15 +53,15 @@ body,
 input,
 select,
 textarea {
-  color: _palette(fg);
-  font-family: _font(family);
+  color: functions.palette(fg);
+  font-family: functions.font(family);
   font-size: 16pt;
-  font-weight: _font(weight);
+  font-weight: functions.font(weight);
   line-height: 1.75em;
 }
 
 a {
-  @include vendor('transition', ('color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
+  @include skel.vendor('transition', ('color #{functions.duration(transition)} ease-in-out', 'border-color #{functions.duration(transition)} ease-in-out'));
   border-bottom: dotted 1px;
   color: #e4b31d;
   text-decoration: none;
@@ -74,8 +75,8 @@ a {
 
 strong,
 b {
-  color: _palette(fg-bold);
-  font-weight: _font(weight-bold);
+  color: functions.palette(fg-bold);
+  font-weight: functions.font(weight-bold);
 }
 
 em,
@@ -84,7 +85,7 @@ i {
 }
 
 p {
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
 }
 
 h1,
@@ -93,10 +94,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: _palette(fg-bold);
-  font-weight: _font(weight-bold);
+  color: functions.palette(fg-bold);
+  font-weight: functions.font(weight-bold);
   line-height: 1em;
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
+  margin: 0 0 (functions.size(element-margin) * 0.5) 0;
 
   a {
     color: inherit;
@@ -148,28 +149,28 @@ sup {
 
 hr {
   border: 0;
-  border-bottom: solid 2px _palette(border);
+  border-bottom: solid 2px functions.palette(border);
 
   // This is the *only* instance where we need to rely on margin collapse.
-  margin: _size(element-margin) 0;
+  margin: functions.size(element-margin) 0;
 
   &.major {
-    margin: (_size(element-margin) * 1.5) 0;
+    margin: (functions.size(element-margin) * 1.5) 0;
   }
 }
 
 blockquote {
-  border-left: solid 6px _palette(border);
+  border-left: solid 6px functions.palette(border);
   font-style: italic;
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
   padding: 0.5em 0 0.5em 1.5em;
 }
 
 code {
-  background: _palette(border-bg);
-  border-radius: _size(border-radius);
-  border: solid 2px _palette(border);
-  font-family: _font(family-fixed);
+  background: functions.palette(border-bg);
+  border-radius: functions.size(border-radius);
+  border: solid 2px functions.palette(border);
+  font-family: functions.font(family-fixed);
   font-size: 0.9em;
   margin: 0 0.25em;
   padding: 0.25em 0.65em;
@@ -177,9 +178,9 @@ code {
 
 pre {
   -webkit-overflow-scrolling: touch;
-  font-family: _font(family-fixed);
+  font-family: functions.font(family-fixed);
   font-size: 0.9em;
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
 
   code {
     display: block;
@@ -212,20 +213,20 @@ article {
 
 header {
   p {
-    color: _palette(fg-light);
+    color: functions.palette(fg-light);
     position: relative;
-    margin: 0 0 (_size(element-margin) * 0.75) 0;
+    margin: 0 0 (functions.size(element-margin) * 0.75) 0;
   }
 
   h2+p {
     font-size: 1.25em;
-    margin-top: (_size(element-margin) * -0.5);
+    margin-top: (functions.size(element-margin) * -0.5);
     line-height: 1.5em;
   }
 
   h3+p {
     font-size: 1.1em;
-    margin-top: (_size(element-margin) * -0.4);
+    margin-top: (functions.size(element-margin) * -0.4);
     line-height: 1.5em;
   }
 
@@ -233,7 +234,7 @@ header {
   h5+p,
   h6+p {
     font-size: 0.9em;
-    margin-top: (_size(element-margin) * -0.3);
+    margin-top: (functions.size(element-margin) * -0.3);
     line-height: 1.5em;
   }
 
@@ -247,15 +248,15 @@ header {
 /* Form */
 
 form {
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
 }
 
 label {
-  color: _palette(fg-bold);
+  color: functions.palette(fg-bold);
   display: block;
   font-size: 0.9em;
-  font-weight: _font(weight-bold);
-  margin: 0 0 (_size(element-margin) * 0.5) 0;
+  font-weight: functions.font(weight-bold);
+  margin: 0 0 (functions.size(element-margin) * 0.5) 0;
 }
 
 input[type="text"],
@@ -263,9 +264,9 @@ input[type="password"],
 input[type="email"],
 select,
 textarea {
-  @include vendor('appearance', 'none');
-  background: _palette(border-bg);
-  border-radius: _size(border-radius);
+  @include skel.vendor('appearance', 'none');
+  background: functions.palette(border-bg);
+  border-radius: functions.size(border-radius);
   border: solid 2px transparent;
   color: inherit;
   display: block;
@@ -279,27 +280,27 @@ textarea {
   }
 
   &:focus {
-    border-color: _palette(accent1, bg);
+    border-color: functions.palette(accent1, bg);
   }
 }
 
 .select-wrapper {
-  @include icon;
+  @include mixins.icon;
   display: block;
   position: relative;
 
   &:before {
-    color: _palette(border2);
+    color: functions.palette(border2);
     content: '\f078';
     display: block;
-    height: _size(element-height);
-    line-height: _size(element-height);
+    height: functions.size(element-height);
+    line-height: functions.size(element-height);
     pointer-events: none;
     position: absolute;
     right: 0;
     text-align: center;
     top: 0;
-    width: _size(element-height);
+    width: functions.size(element-height);
   }
 
   select::-ms-expand {
@@ -311,7 +312,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
-  height: _size(element-height);
+  height: functions.size(element-height);
 }
 
 textarea {
@@ -320,7 +321,7 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-  @include vendor('appearance', 'none');
+  @include skel.vendor('appearance', 'none');
   display: block;
   float: left;
   margin-right: -2em;
@@ -329,44 +330,44 @@ input[type="radio"] {
   z-index: -1;
 
   &+label {
-    @include icon;
-    color: _palette(fg);
+    @include mixins.icon;
+    color: functions.palette(fg);
     cursor: pointer;
     display: inline-block;
     font-size: 1em;
-    font-weight: _font(weight);
-    padding-left: (_size(element-height) * 0.6) + 0.75em;
+    font-weight: functions.font(weight);
+    padding-left: (functions.size(element-height) * 0.6) + 0.75em;
     padding-right: 0.75em;
     position: relative;
 
     &:before {
-      background: _palette(border-bg);
-      border-radius: _size(border-radius);
+      background: functions.palette(border-bg);
+      border-radius: functions.size(border-radius);
       border: solid 2px transparent;
       content: '';
       display: inline-block;
-      height: (_size(element-height) * 0.6);
+      height: (functions.size(element-height) * 0.6);
       left: 0;
-      line-height: (_size(element-height) * 0.575);
+      line-height: (functions.size(element-height) * 0.575);
       position: absolute;
       text-align: center;
       top: 0;
-      width: (_size(element-height) * 0.6);
+      width: (functions.size(element-height) * 0.6);
     }
   }
 
   &:checked+label {
     &:before {
-      background: _palette(fg-bold);
-      border-color: _palette(fg-bold);
-      color: _palette(bg);
+      background: functions.palette(fg-bold);
+      border-color: functions.palette(fg-bold);
+      color: functions.palette(bg);
       content: '\f00c';
     }
   }
 
   &:focus+label {
     &:before {
-      border-color: _palette(accent1, bg);
+      border-color: functions.palette(accent1, bg);
     }
   }
 }
@@ -374,7 +375,7 @@ input[type="radio"] {
 input[type="checkbox"] {
   &+label {
     &:before {
-      border-radius: _size(border-radius);
+      border-radius: functions.size(border-radius);
     }
   }
 }
@@ -388,36 +389,36 @@ input[type="radio"] {
 }
 
 ::-webkit-input-placeholder {
-  color: _palette(fg-light) !important;
+  color: functions.palette(fg-light) !important;
   opacity: 1.0;
 }
 
 :-moz-placeholder {
-  color: _palette(fg-light) !important;
+  color: functions.palette(fg-light) !important;
   opacity: 1.0;
 }
 
 ::-moz-placeholder {
-  color: _palette(fg-light) !important;
+  color: functions.palette(fg-light) !important;
   opacity: 1.0;
 }
 
 :-ms-input-placeholder {
-  color: _palette(fg-light) !important;
+  color: functions.palette(fg-light) !important;
   opacity: 1.0;
 }
 
 .formerize-placeholder {
-  color: _palette(fg-light) !important;
+  color: functions.palette(fg-light) !important;
   opacity: 1.0;
 }
 
 /* Box */
 
 .box {
-  border-radius: _size(border-radius);
-  border: solid 2px _palette(border);
-  margin-bottom: _size(element-margin);
+  border-radius: functions.size(border-radius);
+  border: solid 2px functions.palette(border);
+  margin-bottom: functions.size(element-margin);
   padding: 1.5em;
 
   > :last-child,
@@ -436,7 +437,7 @@ input[type="radio"] {
 /* Icon */
 
 .icon {
-  @include icon;
+  @include mixins.icon;
   border-bottom: none;
   position: relative;
 
@@ -448,15 +449,15 @@ input[type="radio"] {
 /* Image */
 
 .image {
-  border-radius: _size(border-radius);
+  border-radius: functions.size(border-radius);
   border: 0;
   display: inline-block;
   position: relative;
 
   &:before {
-    @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+    @include skel.vendor('transition', 'opacity #{functions.duration(transition)} ease-in-out');
     background: url('images/overlay.png');
-    border-radius: _size(border-radius);
+    border-radius: functions.size(border-radius);
     content: '';
     display: block;
     height: 100%;
@@ -471,14 +472,14 @@ input[type="radio"] {
     text-align: center;
 
     &:after {
-      @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
-      border-radius: _size(border-radius);
+      @include skel.vendor('transition', 'opacity #{functions.duration(transition)} ease-in-out');
+      border-radius: functions.size(border-radius);
       border: solid 3px rgba(255, 255, 255, 0.5);
       color: #fff;
       content: 'View';
       display: inline-block;
       font-size: 0.8em;
-      font-weight: _font(weight-bold);
+      font-weight: functions.font(weight-bold);
       left: 50%;
       line-height: 2.25em;
       margin: -1.25em 0 0 -3em;
@@ -504,7 +505,7 @@ input[type="radio"] {
   }
 
   img {
-    border-radius: _size(border-radius);
+    border-radius: functions.size(border-radius);
     display: block;
   }
 
@@ -531,7 +532,7 @@ input[type="radio"] {
 
   &.fit {
     display: block;
-    margin: 0 0 _size(element-margin) 0;
+    margin: 0 0 functions.size(element-margin) 0;
     width: 100%;
 
     img {
@@ -557,7 +558,7 @@ input[type="radio"] {
 
 ol {
   list-style: decimal;
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
   padding-left: 1.25em;
 
   li {
@@ -567,7 +568,7 @@ ol {
 
 ul {
   list-style: disc;
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
   padding-left: 2em;
 
   li {
@@ -579,7 +580,7 @@ ul {
     padding-left: 0;
 
     li {
-      border-top: solid 2px _palette(border);
+      border-top: solid 2px functions.palette(border);
       padding: 0.5em 0;
 
       &:first-child {
@@ -617,7 +618,7 @@ ul {
 
     li {
       display: inline-block;
-      padding: 0 (_size(element-margin) * 0.5) 0 0;
+      padding: 0 (functions.size(element-margin) * 0.5) 0 0;
       vertical-align: middle;
 
       &:last-child {
@@ -627,14 +628,14 @@ ul {
 
     &.small {
       li {
-        padding: 0 (_size(element-margin) * 0.25) 0 0;
+        padding: 0 (functions.size(element-margin) * 0.25) 0 0;
       }
     }
 
     &.vertical {
       li {
         display: block;
-        padding: (_size(element-margin) * 0.5) 0 0 0;
+        padding: (functions.size(element-margin) * 0.5) 0 0 0;
 
         &:first-child {
           padding-top: 0;
@@ -647,7 +648,7 @@ ul {
 
       &.small {
         li {
-          padding: (_size(element-margin) * 0.25) 0 0 0;
+          padding: (functions.size(element-margin) * 0.25) 0 0 0;
 
           &:first-child {
             padding-top: 0;
@@ -658,14 +659,14 @@ ul {
 
     &.fit {
       display: table;
-      margin-left: (_size(element-margin) * -0.5);
+      margin-left: (functions.size(element-margin) * -0.5);
       padding: 0;
       table-layout: fixed;
-      width: calc(100% + #{(_size(element-margin) * 0.5)});
+      width: calc(100% + #{(functions.size(element-margin) * 0.5)});
 
       li {
         display: table-cell;
-        padding: 0 0 0 (_size(element-margin) * 0.5);
+        padding: 0 0 0 (functions.size(element-margin) * 0.5);
 
         >* {
           margin-bottom: 0;
@@ -673,11 +674,11 @@ ul {
       }
 
       &.small {
-        margin-left: (_size(element-margin) * -0.25);
-        width: calc(100% + #{(_size(element-margin) * 0.25)});
+        margin-left: (functions.size(element-margin) * -0.25);
+        width: calc(100% + #{(functions.size(element-margin) * 0.25)});
 
         li {
-          padding: 0 0 0 (_size(element-margin) * 0.25);
+          padding: 0 0 0 (functions.size(element-margin) * 0.25);
         }
       }
     }
@@ -702,7 +703,7 @@ ul {
       }
 
       h3 {
-        color: _palette(fg-light);
+        color: functions.palette(fg-light);
         left: 0;
         position: absolute;
         text-align: center;
@@ -714,7 +715,7 @@ ul {
 }
 
 dl {
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
 }
 
 /* Table */
@@ -725,17 +726,17 @@ dl {
 }
 
 table {
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
   width: 100%;
 
   tbody {
     tr {
-      border: solid 1px _palette(border);
+      border: solid 1px functions.palette(border);
       border-left: 0;
       border-right: 0;
 
       &:nth-child(2n + 1) {
-        background-color: _palette(border-bg);
+        background-color: functions.palette(border-bg);
       }
     }
   }
@@ -745,19 +746,19 @@ table {
   }
 
   th {
-    color: _palette(fg-bold);
+    color: functions.palette(fg-bold);
     font-size: 0.9em;
-    font-weight: _font(weight-bold);
+    font-weight: functions.font(weight-bold);
     padding: 0 0.75em 0.75em 0.75em;
     text-align: left;
   }
 
   thead {
-    border-bottom: solid 2px _palette(border);
+    border-bottom: solid 2px functions.palette(border);
   }
 
   tfoot {
-    border-top: solid 2px _palette(border);
+    border-top: solid 2px functions.palette(border);
   }
 
   &.alt {
@@ -766,7 +767,7 @@ table {
     tbody {
       tr {
         td {
-          border: solid 2px _palette(border);
+          border: solid 2px functions.palette(border);
           border-left-width: 0;
           border-top-width: 0;
 
@@ -799,15 +800,15 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 .button {
-  @include vendor('appearance', 'none');
-  @include vendor('transition', ('background-color #{_duration(transition)} ease-in-out', 'color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
+  @include skel.vendor('appearance', 'none');
+  @include skel.vendor('transition', ('background-color #{functions.duration(transition)} ease-in-out', 'color #{functions.duration(transition)} ease-in-out', 'border-color #{functions.duration(transition)} ease-in-out'));
   background-color: transparent;
-  border-radius: _size(border-radius);
-  border: solid 3px _palette(border);
-  color: _palette(fg-bold) !important;
+  border-radius: functions.size(border-radius);
+  border: solid 3px functions.palette(border);
+  color: functions.palette(fg-bold) !important;
   cursor: pointer;
   display: inline-block;
-  font-weight: _font(weight-bold);
+  font-weight: functions.font(weight-bold);
   height: 3.15em;
   height: calc(2.75em + 6px);
   line-height: 2.75em;
@@ -818,14 +819,14 @@ input[type="button"],
   white-space: nowrap;
 
   &:hover {
-    border-color: _palette(accent1, bg);
-    color: _palette(accent1, bg) !important;
+    border-color: functions.palette(accent1, bg);
+    color: functions.palette(accent1, bg) !important;
   }
 
   &:active {
-    background-color: transparentize(_palette(accent1, bg), 0.9);
-    border-color: _palette(accent1, bg);
-    color: _palette(accent1, bg) !important;
+    background-color: color.adjust(functions.palette(accent1, bg), $alpha: -0.9);
+    border-color: functions.palette(accent1, bg);
+    color: functions.palette(accent1, bg) !important;
   }
 
   &.icon {
@@ -838,7 +839,7 @@ input[type="button"],
 
   &.fit {
     display: block;
-    margin: 0 0 (_size(element-margin) * 0.5) 0;
+    margin: 0 0 (functions.size(element-margin) * 0.5) 0;
     min-width: 0;
     width: 100%;
   }
@@ -852,26 +853,26 @@ input[type="button"],
   }
 
   &.special {
-    background-color: _palette(accent1, bg);
-    border-color: _palette(accent1, bg);
-    color: _palette(accent1, fg-bold) !important;
+    background-color: functions.palette(accent1, bg);
+    border-color: functions.palette(accent1, bg);
+    color: functions.palette(accent1, fg-bold) !important;
 
     &:hover {
-      background-color: lighten(_palette(accent1, bg), 5);
-      border-color: lighten(_palette(accent1, bg), 5);
+      background-color: color.adjust(functions.palette(accent1, bg), $lightness: 5%);
+      border-color: color.adjust(functions.palette(accent1, bg), $lightness: 5%);
     }
 
     &:active {
-      background-color: darken(_palette(accent1, bg), 5);
-      border-color: darken(_palette(accent1, bg), 5);
+      background-color: color.adjust(functions.palette(accent1, bg), $lightness: -5%);
+      border-color: color.adjust(functions.palette(accent1, bg), $lightness: -5%);
     }
   }
 
   &.disabled,
   &:disabled {
-    background-color: _palette(border2-bg) !important;
-    border-color: _palette(border2-bg) !important;
-    color: _palette(fg-light) !important;
+    background-color: functions.palette(border2-bg) !important;
+    border-color: functions.palette(border2-bg) !important;
+    color: functions.palette(fg-light) !important;
     cursor: default;
   }
 }
@@ -879,15 +880,15 @@ input[type="button"],
 /* Work Item */
 
 .work-item {
-  margin: 0 0 _size(element-margin) 0;
+  margin: 0 0 functions.size(element-margin) 0;
 
   .image {
-    margin: 0 0 (_size(element-margin) * 0.75) 0;
+    margin: 0 0 (functions.size(element-margin) * 0.75) 0;
   }
 
   h3 {
     font-size: 1em;
-    margin: 0 0 (_size(element-margin) * 0.25) 0;
+    margin: 0 0 (functions.size(element-margin) * 0.25) 0;
   }
 
   p {
@@ -906,18 +907,18 @@ input[type="button"],
 
 #header {
   display: block; /* Changed from flex */
-  background-color: _palette(accent2, fg);
+  background-color: functions.palette(accent2, fg);
   background-attachment: scroll, fixed;  
   background-position: top left, top left;
   background-repeat: repeat, no-repeat;
   background-size: auto, auto;
-  color: _palette(accent2, fg);
+  color: functions.palette(accent2, fg);
   padding: ($size-header-pad * 2) $size-header-pad;
   text-align: right;
   width: 100%; /* Changed from fixed header width */
 
   h1 {
-    color: _palette(accent2, fg);
+    color: functions.palette(accent2, fg);
     font-size: 1.35em;
     line-height: 1.75em;
     margin: 0;
@@ -925,7 +926,7 @@ input[type="button"],
 
   strong,
   b {
-    color: _palette(accent2, fg-bold);
+    color: functions.palette(accent2, fg-bold);
   }
 
   h2,
@@ -933,7 +934,7 @@ input[type="button"],
   h4,
   h5,
   h6 {
-    color: _palette(accent2, fg-bold);
+    color: functions.palette(accent2, fg-bold);
   }
 
   .image.avatar {
@@ -947,10 +948,10 @@ input[type="button"],
 
 #contacts {
   .icons {
-    margin: (_size(element-margin) * 0.5) 0 0 0;
+    margin: (functions.size(element-margin) * 0.5) 0 0 0;
 
     a {
-      color: _palette(accent2, fg-light);
+      color: functions.palette(accent2, fg-light);
     }
   }
 }
@@ -963,7 +964,7 @@ input[type="button"],
   .copyright {
     font-size: 0.8em;
     list-style: none;
-    margin: (_size(element-margin) * 0.5);
+    margin: (functions.size(element-margin) * 0.5);
     padding: 0;
 
     li {
@@ -990,7 +991,7 @@ input[type="button"],
   // width: calc(100% - #{$size-header-width});
 
   >section {
-    border-top: solid 2px _palette(border);
+    border-top: solid 2px functions.palette(border);
     margin: $size-header-pad 0 0 0;
     padding: $size-header-pad 0 0 0;
     background: #333;
@@ -1024,30 +1025,30 @@ input[type="button"],
 
 /* Poptrox */
 
-@include keyframes('spin') {
+@include skel.keyframes('spin') {
   0% {
-    @include vendor('transform', 'rotate(0deg)');
+    @include skel.vendor('transform', 'rotate(0deg)');
   }
 
   100% {
-    @include vendor('transform', 'rotate(360deg)');
+    @include skel.vendor('transform', 'rotate(360deg)');
   }
 }
 
 ;
 
 .poptrox-popup {
-  @include vendor('box-sizing', 'content-box');
+  @include skel.vendor('box-sizing', 'content-box');
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   background: #fff;
-  border-radius: _size(border-radius);
+  border-radius: functions.size(border-radius);
   box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
   padding-bottom: 3em;
 
   .loader {
-    @include icon;
-    @include vendor('animation', 'spin 1s linear infinite');
+    @include mixins.icon;
+    @include skel.vendor('animation', 'spin 1s linear infinite');
     font-size: 1.5em;
     height: 1em;
     left: 50%;
@@ -1078,8 +1079,8 @@ input[type="button"],
 
   .nav-next,
   .nav-previous {
-    @include icon;
-    @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+    @include mixins.icon;
+    @include skel.vendor('transition', 'opacity #{functions.duration(transition)} ease-in-out');
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     background: rgba(0, 0, 0, 0.01);
     cursor: pointer;
@@ -1121,8 +1122,8 @@ input[type="button"],
   }
 
   .closer {
-    @include icon;
-    @include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+    @include mixins.icon;
+    @include skel.vendor('transition', 'opacity #{functions.duration(transition)} ease-in-out');
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     color: #fff;
     height: 4em;
@@ -1136,7 +1137,7 @@ input[type="button"],
     z-index: 2;
 
     &:before {
-      @include vendor('box-sizing', 'content-box');
+      @include skel.vendor('box-sizing', 'content-box');
       border-radius: 100%;
       border: solid 3px rgba(255, 255, 255, 0.5);
       content: '\f00d';
@@ -1207,7 +1208,7 @@ body.is-touch {
 
 /* XLarge */
 
-@include breakpoint(xlarge) {
+@include skel.breakpoint(xlarge) {
 
   /* Basic */
 
@@ -1222,7 +1223,7 @@ body.is-touch {
 
 /* Large */
 
-@include breakpoint(large) {
+@include skel.breakpoint(large) {
 
   $size-header-width: 30%;
   $size-header-pad: 2em;
@@ -1273,7 +1274,7 @@ body.is-touch {
 
 /* Medium */
 
-@include breakpoint(medium) {
+@include skel.breakpoint(medium) {
 
   $size-header-pad: 2em;
 
@@ -1337,11 +1338,11 @@ body.is-touch {
     width: 100%;
 
     .icons {
-      margin: 0 0 (_size(element-margin) * 0.5) 0;
+      margin: 0 0 (functions.size(element-margin) * 0.5) 0;
     }
 
     .copyright {
-      margin: 0 0 (_size(element-margin) * 0.5) 0;
+      margin: 0 0 (functions.size(element-margin) * 0.5) 0;
 
       li {
         border-left-width: 1px;
@@ -1370,7 +1371,7 @@ body.is-touch {
 
 /* Small */
 
-@include breakpoint(small) {
+@include skel.breakpoint(small) {
 
   $size-header-pad: 1.5em;
 
@@ -1474,7 +1475,7 @@ body.is-touch {
 
 /* XSmall */
 
-@include breakpoint(xsmall) {
+@include skel.breakpoint(xsmall) {
 
   $size-header-pad: 1.5em;
 
@@ -1482,11 +1483,11 @@ body.is-touch {
 
   ul {
     &.actions {
-      margin: 0 0 _size(element-margin) 0;
+      margin: 0 0 functions.size(element-margin) 0;
 
       li {
         display: block;
-        padding: (_size(element-margin) * 0.5) 0 0 0;
+        padding: (functions.size(element-margin) * 0.5) 0 0 0;
         text-align: center;
         width: 100%;
 
@@ -1508,7 +1509,7 @@ body.is-touch {
 
       &.small {
         li {
-          padding: (_size(element-margin) * 0.25) 0 0 0;
+          padding: (functions.size(element-margin) * 0.25) 0 0 0;
 
           &:first-child {
             padding-top: 0;
