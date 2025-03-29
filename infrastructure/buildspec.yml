@@ -12,8 +12,3 @@ phases:
       - npm ci --omit=dev && npm run build
       - aws s3 rm s3://$SITE_BUCKET/ --recursive && aws s3 cp bin s3://$SITE_BUCKET/ --recursive
       - chmod +x invalidate.sh && ./invalidate.sh
-
-cache:
-  paths:
-    - '/root/.npm/**/*'
-    - 'build/**/*'
