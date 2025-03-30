@@ -475,7 +475,7 @@ input[type='radio'] {
       'transition',
       'opacity #{functions.duration(transition)} ease-in-out'
     );
-    background: url('images/overlay.png');
+    background: url('/images/overlay.png');
     border-radius: functions.size(border-radius);
     content: '';
     display: block;
@@ -520,7 +520,7 @@ input[type='radio'] {
       }
 
       &:before {
-        background: url('images/overlay.png'), url('images/overlay.png');
+        background: url('/images/overlay.png'), url('/images/overlay.png');
         opacity: 1;
       }
     }

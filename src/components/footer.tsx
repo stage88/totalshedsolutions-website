@@ -2,8 +2,7 @@ import React from 'react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
 const Footer: React.FC = () => {
-  const { title, description, author, sourceUrl, authorUrl } =
-    useSiteMetadata();
+  const { title, description, author, sourceUrl, authorUrl } = useSiteMetadata();
 
   return (
     <div id='footer'>

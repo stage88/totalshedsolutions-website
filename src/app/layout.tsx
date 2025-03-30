@@ -4,11 +4,11 @@ import Header from '@/components/header';
 import SEO from '@/components/seo';
 import '../assets/scss/main.scss';
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html suppressHydrationWarning={true} className='scroll-smooth!' lang='en'>
       <head>
