@@ -10,6 +10,7 @@ type Props = {
   constactEmail: string;
   constactNumber: string;
   facebookUrl: string;
+  gtmId: string;
 };
 
 const useSiteMetadata = (): Props => {
@@ -27,6 +28,7 @@ const useSiteMetadata = (): Props => {
     sourceUrl: 'https://github.com/stage88/totalshedsolutions-website',
     siteImage: 'images/large-logo.png',
     facebookUrl: 'https://www.facebook.com/profile.php?id=100092559450393',
+    gtmId: 'G-MMC28FF3R1',
   };
 };
 
