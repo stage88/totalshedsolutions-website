@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Steel / charcoal — the cool neutral base. Used for text, lines and the
+     always-dark "wells" (header, hero, footer) that read the same in both modes. */
+  --color-steel-50: #f4f5f7;
+  --color-steel-100: #e7e9ee;
+  --color-steel-200: #cbd1da;
+  --color-steel-300: #a7afbf;
+  --color-steel-400: #7c8699;
+  --color-steel-500: #5a6477;
+  --color-steel-600: #3f4856;
+  --color-steel-700: #2b333f;
+  --color-steel-800: #1b212b;
+  --color-steel-900: #11161d;
+  --color-steel-950: #090c11;
+
+  /* Amber — sampled from the Total Shed Solutions logo. The brand accent. */
+  --color-amber-brand: #f0a52a;
+  --color-amber-brand-hover: #d98e1c;
+  --color-amber-soft: #f7bd5c;
+  --color-amber-deep: #b9710f;
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 24px 60px -20px rgba(17, 22, 29, 0.25);
+  --shadow-cta: 0 12px 30px -8px rgba(240, 165, 42, 0.45);
+}
+
+/* Semantic surface/text tokens. These flip with the theme — utilities such as
+   bg-surface / bg-card / text-foreground / text-muted / border-line resolve to
+   the values defined in :root (light) and .dark below. The steel-* / amber-*
+   brand scales above stay constant and are used for the always-dark sections
+   (hero, why-us, footer, page heroes) that read as deep "wells" in both modes. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
+
+:root {
+  --surface: #ffffff;
+  --surface-2: #f4f5f7; /* steel-50 */
+  --card: #ffffff;
+  --foreground: #14181f; /* near-black charcoal */
+  --muted: #5a6477; /* steel-500 */
+  --line: #e7e9ee; /* steel-100 */
+  color-scheme: light;
+}
+
+.dark {
+  --surface: #11161d; /* steel-900 deep canvas */
+  --surface-2: #161c25; /* gently elevated alt sections */
+  --card: #1b212b; /* steel-800 — elevated card */
+  --foreground: #f3f5f8;
+  --muted: #a7afbf; /* steel-300 */
+  --line: rgba(255, 255, 255, 0.1);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--surface);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+::selection {
+  background: var(--color-amber-brand);
+  color: #14181f;
+}

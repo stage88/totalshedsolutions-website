@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "words": [
+    "Bungendore",
+    "Colorbond",
+    "BlueScope",
+    "Fyshwick",
+    "Googong",
+    "Queanbeyan",
+    "skillion",
+    "lucide",
+    "lockup",
+    "wordmark",
+    "Saunderson",
+    "Yass",
+    "totalshedsolutions"
+  ],
+  "ignorePaths": ["node_modules", "bin", ".next", "package-lock.json"]
+}
