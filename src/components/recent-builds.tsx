@@ -48,7 +48,9 @@ export default function RecentBuilds() {
               }>
               <Ruler
                 className={
-                  b.highlight ? 'size-6 text-steel-900' : 'size-6 text-amber-deep dark:text-amber-soft'
+                  b.highlight
+                    ? 'size-6 text-steel-900'
+                    : 'size-6 text-amber-deep dark:text-amber-soft'
                 }
                 aria-hidden
               />
@@ -68,7 +70,12 @@ export default function RecentBuilds() {
                 }>
                 {b.type}
               </h3>
-              <p className={b.highlight ? 'mt-1 text-sm/relaxed text-steel-900/80' : 'mt-1 text-sm/relaxed text-muted'}>
+              <p
+                className={
+                  b.highlight
+                    ? 'mt-1 text-sm/relaxed text-steel-900/80'
+                    : 'mt-1 text-sm/relaxed text-muted'
+                }>
                 {b.meta}
               </p>
             </motion.div>

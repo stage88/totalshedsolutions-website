@@ -1,8 +1,8 @@
-import { defineConfig } from 'eslint/config'
-import { fixupConfigRules } from '@eslint/compat'
-import vitals from 'eslint-config-next/core-web-vitals'
-import typescript from 'eslint-config-next/typescript'
-import betterTailwindcss from 'eslint-plugin-better-tailwindcss'
+import { defineConfig } from 'eslint/config';
+import { fixupConfigRules } from '@eslint/compat';
+import vitals from 'eslint-config-next/core-web-vitals';
+import typescript from 'eslint-config-next/typescript';
+import betterTailwindcss from 'eslint-plugin-better-tailwindcss';
 
 const eslintConfig = defineConfig([
   ...fixupConfigRules(vitals),
@@ -42,6 +42,6 @@ const eslintConfig = defineConfig([
       'better-tailwindcss/enforce-consistent-line-wrapping': 'off',
     },
   },
-])
+]);
 
-export default eslintConfig
+export default eslintConfig;

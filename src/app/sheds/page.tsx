@@ -145,8 +145,13 @@ export default function ShedsPage() {
                 <p className='mt-4 text-base/relaxed text-muted sm:text-lg'>{cat.description}</p>
                 <ul className='mt-6 grid gap-3 sm:grid-cols-2'>
                   {cat.examples.map(example => (
-                    <li key={example} className='flex items-start gap-2.5 text-sm text-foreground sm:text-base'>
-                      <Check className='mt-0.5 size-5 shrink-0 text-amber-deep dark:text-amber-soft' aria-hidden />
+                    <li
+                      key={example}
+                      className='flex items-start gap-2.5 text-sm text-foreground sm:text-base'>
+                      <Check
+                        className='mt-0.5 size-5 shrink-0 text-amber-deep dark:text-amber-soft'
+                        aria-hidden
+                      />
                       <span>{example}</span>
                     </li>
                   ))}
@@ -155,7 +160,10 @@ export default function ShedsPage() {
                   href='/contact'
                   className='group mt-8 inline-flex items-center gap-2 rounded-full bg-amber-brand px-6 py-3.5 text-sm font-bold text-steel-900 shadow-cta transition hover:bg-amber-brand-hover'>
                   Quote a {cat.title.toLowerCase()} shed
-                  <ArrowRight className='size-4 transition group-hover:translate-x-0.5' aria-hidden />
+                  <ArrowRight
+                    className='size-4 transition group-hover:translate-x-0.5'
+                    aria-hidden
+                  />
                 </Link>
               </div>
 

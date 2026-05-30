@@ -7,6 +7,6 @@ const config = {
   reactStrictMode: true,
   trailingSlash: true,
   distDir: 'bin',
-}
+};
 
-export default config
+export default config;

@@ -45,9 +45,9 @@ export default function WaterTanks() {
               Authorised Bushmans water tank reseller.
             </h2>
             <p className='mt-5 text-base/relaxed text-muted sm:text-lg'>
-              As a listed Bushmans stockist, we supply and deliver quality Australian-made poly water
-              tanks alongside your shed — ideal when you are setting up a rural block or adding
-              rainwater storage at home.
+              As a listed Bushmans stockist, we supply and deliver quality Australian-made poly
+              water tanks alongside your shed — ideal when you are setting up a rural block or
+              adding rainwater storage at home.
             </p>
             <ul className='mt-6 grid gap-3 sm:grid-cols-2'>
               {tankTypes.map(t => (

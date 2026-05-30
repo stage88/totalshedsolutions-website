@@ -1,0 +1,17 @@
+# Build output
+.next/
+bin/
+out/
+
+# Dependencies
+node_modules/
+
+# Generated / vendored
+package-lock.json
+next-env.d.ts
+
+# Static assets (images, traced SVGs, etc.)
+public/
+
+# Deployment templates (CloudFormation YAML) — leave formatting as-authored
+infrastructure/

@@ -14,8 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/gallery' },
   openGraph: {
     title: 'Gallery | Total Shed Solutions Australia',
-    description:
-      'Custom sheds, garages and rural structures built across the Canberra region.',
+    description: 'Custom sheds, garages and rural structures built across the Canberra region.',
     url: '/gallery',
     images: [siteMetadata.ogImage],
   },

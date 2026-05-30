@@ -96,7 +96,9 @@ export default function ContactPage() {
                 <span className='inline-flex size-12 items-center justify-center rounded-2xl bg-amber-brand/15 text-amber-deep transition group-hover:bg-amber-brand group-hover:text-steel-900 dark:text-amber-soft'>
                   <card.icon className='size-6' aria-hidden />
                 </span>
-                <h2 className='mt-6 font-display text-xl font-bold text-foreground'>{card.title}</h2>
+                <h2 className='mt-6 font-display text-xl font-bold text-foreground'>
+                  {card.title}
+                </h2>
                 <p className='mt-2 font-display text-lg/snug font-semibold wrap-break-word text-foreground'>
                   {card.primary}
                 </p>

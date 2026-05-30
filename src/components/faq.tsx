@@ -48,7 +48,11 @@ export default function Faq({ items }: { items: FaqItem[] }) {
           onClick={toggleAll}
           aria-expanded={allOpen}
           className='inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-xs font-bold tracking-wide text-amber-deep uppercase transition hover:bg-amber-brand/10 dark:text-amber-soft'>
-          {allOpen ? <Minus className='size-3.5' aria-hidden /> : <Plus className='size-3.5' aria-hidden />}
+          {allOpen ? (
+            <Minus className='size-3.5' aria-hidden />
+          ) : (
+            <Plus className='size-3.5' aria-hidden />
+          )}
           {allOpen ? 'Collapse all' : 'Expand all'}
         </button>
       </div>

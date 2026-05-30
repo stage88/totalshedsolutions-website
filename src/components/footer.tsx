@@ -45,8 +45,8 @@ export default function Footer() {
               <Logo className='h-18 w-auto sm:h-20' />
             </Link>
             <p className='mt-5 max-w-sm text-sm/relaxed text-white/70'>
-              Custom-made, 100% Australian steel sheds — designed, engineered and built for
-              Canberra and the surrounding region. Domestic, rural, commercial and made to order.
+              Custom-made, 100% Australian steel sheds — designed, engineered and built for Canberra
+              and the surrounding region. Domestic, rural, commercial and made to order.
             </p>
           </div>
 

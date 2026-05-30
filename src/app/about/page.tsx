@@ -117,7 +117,10 @@ export default function AboutPage() {
               <ul className='mt-6 space-y-4'>
                 {whoWeAre.map(item => (
                   <li key={item} className='flex gap-3 text-base text-muted'>
-                    <Users className='mt-1 size-5 shrink-0 text-amber-deep dark:text-amber-soft' aria-hidden />
+                    <Users
+                      className='mt-1 size-5 shrink-0 text-amber-deep dark:text-amber-soft'
+                      aria-hidden
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -134,7 +137,10 @@ export default function AboutPage() {
               <ul className='mt-6 space-y-4'>
                 {howWeWork.map(item => (
                   <li key={item} className='flex gap-3 text-base text-muted'>
-                    <BadgeCheck className='mt-1 size-5 shrink-0 text-amber-deep dark:text-amber-soft' aria-hidden />
+                    <BadgeCheck
+                      className='mt-1 size-5 shrink-0 text-amber-deep dark:text-amber-soft'
+                      aria-hidden
+                    />
                     <span>{item}</span>
                   </li>
                 ))}

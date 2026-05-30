@@ -69,10 +69,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang='en-AU'
-      className={`${sans.variable} ${display.variable}`}
-      suppressHydrationWarning>
+    <html lang='en-AU' className={`${sans.variable} ${display.variable}`} suppressHydrationWarning>
       <body className='min-h-screen bg-surface text-foreground antialiased'>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ThemeProvider>
